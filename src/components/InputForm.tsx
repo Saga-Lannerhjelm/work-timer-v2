@@ -27,7 +27,7 @@ const InputForm: React.FC<InputFormProps> = ({ onAdd }) => {
         type="color"
         value={color}
         onChange={(e) => setColor(e.target.value)}
-        className="w-10 h-10"
+        className="w-10 h-12"
       />
       <button
         disabled={true}

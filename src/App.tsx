@@ -6,6 +6,7 @@ import NotesInput from "./components/NotesInput";
 import TotalSummary from "./components/TotalSummary";
 import { getItem, setItem, removeItem } from "./utils/storage";
 import "./index.css";
+import "preline";
 
 export interface EventEntry {
   start: Date | string;
@@ -115,24 +116,45 @@ export default function App() {
   };
 
   return (
-    <div className="p-4 max-w-3xl mx-auto flex flex-col gap-6">
-      <InputForm onAdd={addActivity} />
-      <ActivityList
-        activities={activities}
-        startedActivity={startedActivity}
-        onActivityClick={handleActivityClick}
-      />
-      {startedActivity && (
-        <NotesInput value={note} onChange={updateEventNote} />
-      )}
-      <EventList activities={activities} onTimeUpdate={updateEventTime} />
-      <TotalSummary activities={activities} />
-      <button
-        onClick={deleteAllEvents}
-        className="bg-red-500 text-white px-4 py-2 rounded"
+    <div
+      className="p-4 mx-auto flex flex-col gap-6 h-screen"
+      data-hs-layout-splitter='{
+      "horizontalSplitterTemplate": "<div><span class=\"absolute top-1/2 start-1/2 -translate-x-1/2 -translate-y-1/2 block w-4 h-full flex justify-center items-center bg-white border border-gray-200 text-gray-400 rounded-md cursor-col-resize hover:bg-gray-100 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-600 dark:hover:bg-neutral-900\"><svg class=\"shrink-0 size-3.5\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"9\" cy=\"12\" r=\"1\"/><circle cx=\"9\" cy=\"5\" r=\"1\"/><circle cx=\"9\" cy=\"19\" r=\"1\"/><circle cx=\"15\" cy=\"12\" r=\"1\"/><circle cx=\"15\" cy=\"5\" r=\"1\"/><circle cx=\"15\" cy=\"19\" r=\"1\"/></svg></span></div>",
+      "horizontalSplitterClasses": "relative flex border-s border-gray-200 dark:border-neutral-700"
+    }'
+    >
+      <div
+        className="flex h-screen"
+        data-hs-layout-splitter-horizontal-group=""
       >
-        Rensa alla events
-      </button>
+        <div
+          className="overflow-hidden h-full"
+          data-hs-layout-splitter-item="20"
+        >
+          <InputForm onAdd={addActivity} />
+          <ActivityList
+            activities={activities}
+            startedActivity={startedActivity}
+            onActivityClick={handleActivityClick}
+          />
+        </div>
+        <div
+          className="overflow-hidden h-full"
+          data-hs-layout-splitter-item="80"
+        >
+          {startedActivity && (
+            <NotesInput value={note} onChange={updateEventNote} />
+          )}
+          <EventList activities={activities} onTimeUpdate={updateEventTime} />
+          <TotalSummary activities={activities} />
+          <button
+            onClick={deleteAllEvents}
+            className="bg-red-500 text-white px-4 py-2 rounded"
+          >
+            Rensa alla events
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
