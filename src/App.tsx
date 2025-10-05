@@ -137,15 +137,15 @@ export default function App() {
             startedActivity={startedActivity}
             onActivityClick={handleActivityClick}
           />
+          {startedActivity && (
+            <NotesInput value={note} onChange={updateEventNote} />
+          )}
         </div>
         <div
           className="overflow-hidden h-full p-4"
           data-hs-layout-splitter-item="80"
           style={{ flex: "80 1 0px" }}
         >
-          {startedActivity && (
-            <NotesInput value={note} onChange={updateEventNote} />
-          )}
           <EventList activities={activities} onTimeUpdate={updateEventTime} />
           <TotalSummary activities={activities} />
           <button
