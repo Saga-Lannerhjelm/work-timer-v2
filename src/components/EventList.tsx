@@ -1,5 +1,5 @@
 import React from "react";
-import type { Activity, EventEntry } from "../App";
+import type { Activity } from "../App";
 
 interface Props {
   activities: Activity[];
