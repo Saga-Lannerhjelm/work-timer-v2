@@ -117,19 +117,19 @@ export default function App() {
 
   return (
     <div
-      className="p-4 mx-auto flex flex-col gap-6 h-screen"
       data-hs-layout-splitter='{
-      "horizontalSplitterTemplate": "<div><span class=\"absolute top-1/2 start-1/2 -translate-x-1/2 -translate-y-1/2 block w-4 h-full flex justify-center items-center bg-white border border-gray-200 text-gray-400 rounded-md cursor-col-resize hover:bg-gray-100 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-600 dark:hover:bg-neutral-900\"><svg class=\"shrink-0 size-3.5\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"9\" cy=\"12\" r=\"1\"/><circle cx=\"9\" cy=\"5\" r=\"1\"/><circle cx=\"9\" cy=\"19\" r=\"1\"/><circle cx=\"15\" cy=\"12\" r=\"1\"/><circle cx=\"15\" cy=\"5\" r=\"1\"/><circle cx=\"15\" cy=\"19\" r=\"1\"/></svg></span></div>",
-      "horizontalSplitterClasses": "relative flex border-s border-gray-200 dark:border-neutral-700"
-    }'
+        "horizontalSplitterTemplate": "<div><span class=\"absolute top-1/2 start-1/2 -translate-x-1/2 -translate-y-1/2 block w-4 h-6 flex justify-center items-center bg-white border border-gray-200 text-gray-400 rounded-md cursor-col-resize hover:bg-gray-100 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-600 dark:hover:bg-neutral-900\"><svg class=\"shrink-0 size-3.5\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"9\" cy=\"12\" r=\"1\"/><circle cx=\"9\" cy=\"5\" r=\"1\"/><circle cx=\"9\" cy=\"19\" r=\"1\"/><circle cx=\"15\" cy=\"12\" r=\"1\"/><circle cx=\"15\" cy=\"5\" r=\"1\"/><circle cx=\"15\" cy=\"19\" r=\"1\"/></svg></span></div>",
+        "horizontalSplitterClasses": "relative flex border-s border-gray-200 dark:border-neutral-700"
+      }'
     >
       <div
         className="flex h-screen"
         data-hs-layout-splitter-horizontal-group=""
       >
         <div
-          className="overflow-hidden h-full"
+          className="overflow-hidden h-full p-4"
           data-hs-layout-splitter-item="20"
+          style={{ flex: "20 1 0px" }}
         >
           <InputForm onAdd={addActivity} />
           <ActivityList
@@ -139,8 +139,9 @@ export default function App() {
           />
         </div>
         <div
-          className="overflow-hidden h-full"
+          className="overflow-hidden h-full p-4"
           data-hs-layout-splitter-item="80"
+          style={{ flex: "80 1 0px" }}
         >
           {startedActivity && (
             <NotesInput value={note} onChange={updateEventNote} />
