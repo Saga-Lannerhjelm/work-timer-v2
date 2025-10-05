@@ -49,8 +49,7 @@ const EventList: React.FC<Props> = ({ activities, onTimeUpdate }) => {
       {sorted.map((e, i) => (
         <li key={i} className="flex items-start gap-3">
           <span
-            className="w-3 h-3 rounded-full mt-2"
-            style={{ backgroundColor: e.color }}
+            className={`w-3 h-8 rounded-full mt-2 bg-${e.color.slice(3)}`}
           />
           <div>
             <h4 className="font-bold">{e.activity}</h4>

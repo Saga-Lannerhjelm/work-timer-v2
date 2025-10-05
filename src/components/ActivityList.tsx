@@ -13,26 +13,26 @@ const ActivityList: React.FC<Props> = ({
   onActivityClick,
 }) => {
   return (
-    <ul className="flex flex-wrap gap-2">
-      {activities.map((a) => {
-        const active = a.name === startedActivity;
-        return (
-          <li
-            key={a.name}
-            onClick={() => onActivityClick(a.name)}
-            className={`border px-4 py-2 rounded cursor-pointer ${
-              active ? "text-white" : "text-black"
-            }`}
-            style={{
-              borderColor: a.color,
-              backgroundColor: active ? a.color : "transparent",
-            }}
-          >
-            {a.name}
-          </li>
-        );
-      })}
-    </ul>
+    <div className="flex flex-col">
+      <h3 className="mb-2">Activities</h3>
+      <ul className="flex flex-wrap gap-2">
+        {activities.map((a) => {
+          const active = a.name === startedActivity;
+          const color = a.color.slice(3);
+          return (
+            <li
+              key={a.name}
+              onClick={() => onActivityClick(a.name)}
+              className={`border px-2 py-1 rounded text-sm cursor-pointer ${
+                active ? "text-white" : "text-black"
+              } border-${color} ${active ? "bg-" + color : "bg-opacity-0"}`}
+            >
+              {a.name}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 };
 
