@@ -20,10 +20,23 @@ function formatTime(date: Date | string): string {
 
 function getDuration(start: Date | string, end: Date | string): string {
   const ms = new Date(end).getTime() - new Date(start).getTime();
-  const totalMin = Math.floor(ms / 60000);
-  const h = Math.floor(totalMin / 60);
-  const m = totalMin % 60;
-  return `${h}h ${m}m`;
+  const hours = Math.floor(ms / (1000 * 60 * 60));
+  const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((ms % (1000 * 60)) / 1000);
+
+  let timeDiffArray = [];
+  if (hours !== 0) {
+    timeDiffArray.push(hours + "h");
+  }
+  if (minutes !== 0) {
+    timeDiffArray.push(minutes + "min");
+  }
+
+  if (seconds !== 0) {
+    timeDiffArray.push(seconds + "s");
+  }
+
+  return timeDiffArray.join(" ");
 }
 
 const EventList: React.FC<Props> = ({ activities, onTimeUpdate }) => {
