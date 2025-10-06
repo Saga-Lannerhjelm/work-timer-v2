@@ -127,7 +127,7 @@ export default function App() {
         data-hs-layout-splitter-horizontal-group=""
       >
         <div
-          className="overflow-hidden h-full p-4"
+          className="overflow-hidden h-full p-4 bg-neutral-100"
           data-hs-layout-splitter-item="20"
           style={{ flex: "20 1 0px" }}
         >
@@ -142,7 +142,7 @@ export default function App() {
           )}
         </div>
         <div
-          className="overflow-hidden h-full p-4"
+          className="overflow-x-hidden h-full p-4"
           data-hs-layout-splitter-item="80"
           style={{ flex: "80 1 0px" }}
         >
