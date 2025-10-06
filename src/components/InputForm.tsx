@@ -48,7 +48,7 @@ const InputForm: React.FC<InputFormProps> = ({ onAdd }) => {
           className="border p-1 flex-1 rounded w-full"
         />
       </div>
-      <div className="grid grid-cols-10 gap-1 grid-rows-1">
+      <div className="flex gap-4 flex-wrap">
         {colors.map((color) => (
           <div
             key={color}
